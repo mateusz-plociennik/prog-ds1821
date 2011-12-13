@@ -1,0 +1,29 @@
+eeschema (2011-07-08 BZR 3044)-stable  >> Creation date: 2011-11-20 23:09:52
+
+#Cmp ( porządek = Oznaczenie )
+| C?         100n        
+| D?         DIODE       
+| IC?        ATTINY2313A-S
+| J?         USB_2       
+| K?         CONN_3      
+| P?         CONN_16     
+| R?         10k         
+| RV?        10k         
+| SW?        SW_PUSH     
+| U?         LM1117-3.3  
+#Koniec Cmp
+
+#Cmp ( porządek = Wartość )
+| 100n         C?        
+| 10k          R?        
+| 10k          RV?       
+| ATTINY2313A-S IC?       
+| CONN_16      P?        
+| CONN_3       K?        
+| DIODE        D?        
+| LM1117-3.3   U?        
+| SW_PUSH      SW?       
+| USB_2        J?        
+#Koniec Cmp
+
+#Koniec listy
