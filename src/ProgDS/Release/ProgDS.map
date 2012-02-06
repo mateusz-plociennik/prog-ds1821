@@ -1,0 +1,498 @@
+Archive member included because of file (symbol)
+
+c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_mulhi3.o)
+                              KEY.o (__mulhi3)
+c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_udivmodqi4.o)
+                              PWRMGMT.o (__udivmodqi4)
+c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_divmodqi4.o)
+                              HD44780.o (__divmodqi4)
+c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_exit.o)
+                              c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn2313a.o (exit)
+c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_copy_data.o)
+                              KEY.o (__do_copy_data)
+c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_clear_bss.o)
+                              MENU.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+temperature         0x1               MENU.o
+polar               0x1               MENU.o
+menuUpdateOnTimer   0x1               PWRMGMT.o
+tempL               0x1               MENU.o
+pwrTimeout          0x1               PWRMGMT.o
+status              0x1               MENU.o
+tempH               0x1               MENU.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00002000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn2313a.o
+LOAD DS.o
+LOAD HD44780.o
+LOAD KEY.o
+LOAD MENU.o
+LOAD OWI.o
+LOAD ProgDS.o
+LOAD PWRMGMT.o
+LOAD c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a
+LOAD c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr25\libc.a
+LOAD c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x7fc
+ *(.vectors)
+ .vectors       0x00000000       0x2a c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn2313a.o
+                0x00000000                __vector_default
+                0x00000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x0000002a        0xc KEY.o
+                0x0000002a                KeyTable
+ .progmem.data  0x00000036       0x74 MENU.o
+                0x00000036                MN00
+                0x00000047                MN01
+                0x00000052                MN10
+                0x00000062                MN20
+                0x00000073                MN30
+                0x00000084                MN40
+                0x00000094                MN50
+                0x000000a4                MN51
+                0x000000aa                . = ALIGN (0x2)
+                0x000000aa                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000000aa        0x0 linker stubs
+ *(.trampolines*)
+                0x000000aa                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x000000aa                __ctors_start = .
+ *(.ctors)
+                0x000000aa                __ctors_end = .
+                0x000000aa                __dtors_start = .
+ *(.dtors)
+                0x000000aa                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x000000aa        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn2313a.o
+                0x000000aa                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x000000aa        0x8 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn2313a.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x000000b2       0x16 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_copy_data.o)
+                0x000000b2                __do_copy_data
+ .init4         0x000000c8       0x10 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_clear_bss.o)
+                0x000000c8                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000d8        0x4 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn2313a.o
+ *(.init9)
+ *(.text)
+ .text          0x000000dc        0x2 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn2313a.o
+                0x000000dc                __vector_1
+                0x000000dc                __vector_12
+                0x000000dc                __bad_interrupt
+                0x000000dc                __vector_3
+                0x000000dc                __vector_13
+                0x000000dc                __vector_17
+                0x000000dc                __vector_19
+                0x000000dc                __vector_7
+                0x000000dc                __vector_5
+                0x000000dc                __vector_4
+                0x000000dc                __vector_9
+                0x000000dc                __vector_2
+                0x000000dc                __vector_15
+                0x000000dc                __vector_8
+                0x000000dc                __vector_14
+                0x000000dc                __vector_10
+                0x000000dc                __vector_16
+                0x000000dc                __vector_18
+                0x000000dc                __vector_20
+ .text          0x000000de        0x0 DS.o
+ .text          0x000000de        0x0 HD44780.o
+ .text          0x000000de        0x0 KEY.o
+ .text          0x000000de        0x0 MENU.o
+ .text          0x000000de        0x0 OWI.o
+ .text          0x000000de        0x0 ProgDS.o
+ .text          0x000000de        0x0 PWRMGMT.o
+ .text          0x000000de        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_mulhi3.o)
+ .text          0x000000de        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_udivmodqi4.o)
+ .text          0x000000de        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_divmodqi4.o)
+ .text          0x000000de        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_exit.o)
+ .text          0x000000de        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_copy_data.o)
+ .text          0x000000de        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_clear_bss.o)
+                0x000000de                . = ALIGN (0x2)
+ *(.text.*)
+ .text.DS1821_ReadTemperature
+                0x000000de       0x6c DS.o
+                0x000000de                DS1821_ReadTemperature
+ .text.DS1821_ModeToggle
+                0x0000014a       0x22 DS.o
+                0x0000014a                DS1821_ModeToggle
+ .text._LCD_OutNibble
+                0x0000016c       0x12 HD44780.o
+                0x0000016c                _LCD_OutNibble
+ .text._LCD_Write
+                0x0000017e       0x22 HD44780.o
+                0x0000017e                _LCD_Write
+ .text.LCD_WriteCommand
+                0x000001a0        0x4 HD44780.o
+                0x000001a0                LCD_WriteCommand
+ .text.LCD_WriteData
+                0x000001a4        0x4 HD44780.o
+                0x000001a4                LCD_WriteData
+ .text.LCD_WriteTextFromPGM
+                0x000001a8       0x1a HD44780.o
+                0x000001a8                LCD_WriteTextFromPGM
+ .text.LCD_GoTo
+                0x000001c2       0x10 HD44780.o
+                0x000001c2                LCD_GoTo
+ .text.LCD_Clear
+                0x000001d2       0x12 HD44780.o
+                0x000001d2                LCD_Clear
+ .text.LCD_Initalize
+                0x000001e4       0x52 HD44780.o
+                0x000001e4                LCD_Initalize
+ .text.LCD_ShowNumber
+                0x00000236       0x6e HD44780.o
+                0x00000236                LCD_ShowNumber
+ .text.KEY_Init
+                0x000002a4       0x12 KEY.o
+                0x000002a4                KEY_Init
+ .text.KEY_Get  0x000002b6       0x8e KEY.o
+                0x000002b6                KEY_Get
+ .text.__vector_11
+                0x00000344       0x82 KEY.o
+                0x00000344                __vector_11
+ .text.MENU_Update
+                0x000003c6      0x224 MENU.o
+                0x000003c6                MENU_Update
+ .text.OWI_Init
+                0x000005ea        0xe OWI.o
+                0x000005ea                OWI_Init
+ .text.OWI_WriteBit1
+                0x000005f8       0x1a OWI.o
+                0x000005f8                OWI_WriteBit1
+ .text.OWI_WriteBit0
+                0x00000612       0x1a OWI.o
+                0x00000612                OWI_WriteBit0
+ .text.OWI_ReadBit
+                0x0000062c       0x24 OWI.o
+                0x0000062c                OWI_ReadBit
+ .text.OWI_DetectPresence
+                0x00000650       0x30 OWI.o
+                0x00000650                OWI_DetectPresence
+ .text.OWI_SendByte
+                0x00000680       0x20 OWI.o
+                0x00000680                OWI_SendByte
+ .text.OWI_ReceiveByte
+                0x000006a0       0x1c OWI.o
+                0x000006a0                OWI_ReceiveByte
+ .text.main     0x000006bc       0x34 ProgDS.o
+                0x000006bc                main
+ .text.PowerInit
+                0x000006f0       0x12 PWRMGMT.o
+                0x000006f0                PowerInit
+ .text.__vector_6
+                0x00000702       0xa0 PWRMGMT.o
+                0x00000702                __vector_6
+ .text.libgcc   0x000007a2       0x24 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_mulhi3.o)
+                0x000007a2                __mulhi3
+ .text.libgcc   0x000007c6       0x18 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_udivmodqi4.o)
+                0x000007c6                __udivmodqi4
+ .text.libgcc   0x000007de       0x1a c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_divmodqi4.o)
+                0x000007de                __divmodqi4
+ .text.libgcc   0x000007f8        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_exit.o)
+ .text.libgcc   0x000007f8        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000007f8        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_clear_bss.o)
+                0x000007f8                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x000007f8        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_exit.o)
+                0x000007f8                _exit
+                0x000007f8                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x000007f8        0x4 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_exit.o)
+ *(.fini0)
+                0x000007fc                _etext = .
+
+.data           0x00800060        0x2 load address 0x000007fc
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn2313a.o
+ .data          0x00800060        0x0 DS.o
+ .data          0x00800060        0x0 HD44780.o
+ .data          0x00800060        0x1 KEY.o
+                0x00800060                key
+ .data          0x00800061        0x0 MENU.o
+ .data          0x00800061        0x0 OWI.o
+ .data          0x00800061        0x0 ProgDS.o
+ .data          0x00800061        0x0 PWRMGMT.o
+ .data          0x00800061        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_mulhi3.o)
+ .data          0x00800061        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_udivmodqi4.o)
+ .data          0x00800061        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_divmodqi4.o)
+ .data          0x00800061        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_exit.o)
+ .data          0x00800061        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_copy_data.o)
+ .data          0x00800061        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800062                . = ALIGN (0x2)
+ *fill*         0x00800061        0x1 00
+                0x00800062                _edata = .
+                0x00800062                PROVIDE (__data_end, .)
+
+.bss            0x00800062        0x8
+                0x00800062                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800062        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn2313a.o
+ .bss           0x00800062        0x0 DS.o
+ .bss           0x00800062        0x0 HD44780.o
+ .bss           0x00800062        0x0 KEY.o
+ .bss           0x00800062        0x1 MENU.o
+                0x00800062                menuState
+ .bss           0x00800063        0x0 OWI.o
+ .bss           0x00800063        0x0 ProgDS.o
+ .bss           0x00800063        0x0 PWRMGMT.o
+ .bss           0x00800063        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_mulhi3.o)
+ .bss           0x00800063        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_udivmodqi4.o)
+ .bss           0x00800063        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_divmodqi4.o)
+ .bss           0x00800063        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_exit.o)
+ .bss           0x00800063        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_copy_data.o)
+ .bss           0x00800063        0x0 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr25\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800063        0x5 MENU.o
+                0x00800063                temperature
+                0x00800064                polar
+                0x00800065                tempL
+                0x00800066                status
+                0x00800067                tempH
+ COMMON         0x00800068        0x2 PWRMGMT.o
+                0x00800068                menuUpdateOnTimer
+                0x00800069                pwrTimeout
+                0x0080006a                PROVIDE (__bss_end, .)
+                0x000007fc                __data_load_start = LOADADDR (.data)
+                0x000007fe                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080006a        0x0
+                0x0080006a                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080006a                PROVIDE (__noinit_end, .)
+                0x0080006a                _end = .
+                0x0080006a                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000      0x6b4
+ *(.stab)
+ .stab          0x00000000      0x6b4 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn2313a.o
+
+.stabstr        0x00000000       0x85
+ *(.stabstr)
+ .stabstr       0x00000000       0x85 c:/program files/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn2313a.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(ProgDS.elf elf32-avr)
+LOAD linker stubs
