@@ -84,8 +84,8 @@ ISR(PCINT_B_vect)
 		if (pwrTimeout == 0x00)
 		{
 			//cli(); //irq's off
-			wdt_enable(WDTO_15MS); //wd on,15ms
-			while(1) {} //loop 
+			wdt_enable(WDTO_15MS); //wdt on 15ms
+			while(1) {} //endless loop 
 		}
 		
 		TCNT0 = KEY_SPEED;

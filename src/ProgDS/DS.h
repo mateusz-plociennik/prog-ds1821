@@ -51,7 +51,6 @@
 #define DS1821_PIN_DQ					PORTA0
 #define DS1821_PIN_VDD					PORTA1
 
-unsigned char DS1821_ReadTemperature(signed char *temperature);
 void DS1821_ModeToggle();
 
 #endif

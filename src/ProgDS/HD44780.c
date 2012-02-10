@@ -96,7 +96,7 @@ void LCD_GoTo(unsigned char x, unsigned char y)
 void LCD_Clear(void)
 {
 	LCD_WriteCommand(HD44780_CLEAR);
-	_delay_ms(1.5);
+	_delay_ms(3);
 }
 //-------------------------------------------------------------------------------------------------
 //
@@ -118,17 +118,17 @@ inline void LCD_Initalize(void)
 {
 	unsigned char i;
 	DDRB |= LCD_BACKLIGHT;
-	//PORTB &= ~LCD_BACKLIGHT; // Wy³¹czenie podœwietlenia
+	PORTB |= LCD_BACKLIGHT; // Wy³¹czenie podœwietlenia
 
 	
 	LCD_DIR = 0xFF; // Konfiguracja kierunku pracy wyprowadzeñ
 	LCD_PORT = ~LCD_POWER; // Wy³¹czenie wyœwietlacza, reszta wyprowadzeñ HIGH
-	_delay_ms(250);
+	_delay_ms(512);
 	//LCD_PORT &= ~(LCD_RS | LCD_E); // wyzerowanie linii RS i E
 	LCD_PORT = LCD_POWER; // W³¹czenie wyœwietlacza
 	 
 	
-	_delay_ms(50); // w/g dokumentacji
+	_delay_ms(64); // w/g dokumentacji
 	//_delay_ms(100); // oczekiwanie na ustalibizowanie siê napiecia zasilajacego
 
 /*
@@ -153,7 +153,7 @@ inline void LCD_Initalize(void)
 	// Za³¹czenia Timera1 jako PWM steruj¹cego podœwietleniem wyœwietlacza.
 	TCCR1A = (1 << COM1B1) | (0 << COM1B0) | (0 << WGM11) | (1 << WGM10);
 	TCCR1B = (0 << WGM13) | (0 << WGM12) | (0 << CS12) | (1 << CS11) | (0 << CS10);
-	//OCR1BL = 0x88; // Jasnoœæ wyœwietlacza
+	//OCR1BL = 0xFF; // Jasnoœæ wyœwietlacza
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -167,14 +167,14 @@ void LCD_ShowNumber(signed char number)
 	char i;
 	char buffer[5];
 	
-	if (number > 0)
+	if (number < 0)
 	{
-		buffer[0] = '+';
-		number *= -1;
+		buffer[0] = '-';
 	}
 	else
 	{
-		buffer[0] = '-';
+		buffer[0] = '+';
+		number *= -1;
 	}
 	
 	for (i = 3; i != 0; i--)

@@ -31,7 +31,7 @@
 #define KEY_UP		'8'
 #define KEY_ENTER	'E'
 
-#define KEY_SPEED	0x22
+#define KEY_SPEED	0x11
 
 extern char key;
 

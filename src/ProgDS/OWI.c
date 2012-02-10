@@ -175,7 +175,7 @@ unsigned char OWI_DetectPresence()
 	
     if ((~OWI_PIN) & (1 << DS1821_PIN_DQ)) //Check if bus is locked to low by DS1821
     {
-		return 0x00;
+		return 0;
     }
 	
 	ATOMIC_BLOCK(ATOMIC_RESTORESTATE)

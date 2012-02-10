@@ -17,6 +17,8 @@ unsigned char status, polar;
 
 void MENU_Update() //zmiana stanu menu po naciœniêciu przycisku
 {
+	char keyTemp = key;
+	
 	if (!OWI_DetectPresence() && menuState != MENU_STATE_THERMO) // Jeœli podczas programowania zostanie od³¹czony DS, wróæ do inicjalizacji 1-Wire
 	{
 		menuState = MENU_STATE_INIT;
@@ -28,13 +30,16 @@ void MENU_Update() //zmiana stanu menu po naciœniêciu przycisku
 		case MENU_STATE_INIT:
 		{
 			LCD_WriteTextFromPGM(MN00);
-			DS1821_ModeToggle();
 			if (OWI_DetectPresence())
 			{
 				LCD_GoTo(3,1);
 				LCD_WriteTextFromPGM(MN01);
 				menuState = MENU_STATE_READ_T;
 				pwrTimeout = PWR_TIMEOUT;
+			}
+			else
+			{
+				DS1821_ModeToggle();
 			}
 			break;
 		}			
@@ -43,7 +48,7 @@ void MENU_Update() //zmiana stanu menu po naciœniêciu przycisku
 			LCD_WriteTextFromPGM(MN10);
 			LCD_GoTo(3,1);
 			LCD_ShowNumber(temperature);
-			switch (key)
+			switch (keyTemp)
 			{
 				case KEY_UP:
 				{
@@ -57,7 +62,31 @@ void MENU_Update() //zmiana stanu menu po naciœniêciu przycisku
 				}
 				default:
 				{
-					DS1821_ReadTemperature(&temperature);
+					OWI_DetectPresence();
+					OWI_SendByte(DS1821_READ_STATUS);
+					status = OWI_ReceiveByte();
+	
+					if ((~status) & DS1821_1SHOT)
+					{
+						OWI_DetectPresence();
+						OWI_SendByte(DS1821_WRITE_STATUS);
+						OWI_SendByte(status | DS1821_1SHOT);
+	
+						_delay_ms(50); // Max EEPROM Write Time 50 ms
+					}
+
+					OWI_DetectPresence();
+					OWI_SendByte(DS1821_START_CONVERT_T);
+	
+					do { // Wait for DONE
+						if (!OWI_DetectPresence()) { break; }
+						OWI_SendByte(DS1821_READ_STATUS);
+						status = OWI_ReceiveByte(); 
+					} while ((~status) & DS1821_DONE);
+
+					OWI_DetectPresence();
+					OWI_SendByte(DS1821_READ_TEMPERATURE);
+					temperature = OWI_ReceiveByte();
 				}					
 			}
 			break;
@@ -65,7 +94,7 @@ void MENU_Update() //zmiana stanu menu po naciœniêciu przycisku
 		case MENU_STATE_READ_TL:
 		{
 			LCD_WriteTextFromPGM(MN20);
-			switch (key)
+			switch (keyTemp)
 			{
 				case KEY_UP:
 				{
@@ -102,7 +131,7 @@ void MENU_Update() //zmiana stanu menu po naciœniêciu przycisku
 		case MENU_STATE_READ_TH:
 		{
 			LCD_WriteTextFromPGM(MN30);
-			switch (key)
+			switch (keyTemp)
 			{
 				case KEY_UP:
 				{
@@ -139,7 +168,7 @@ void MENU_Update() //zmiana stanu menu po naciœniêciu przycisku
 		case MENU_STATE_READ_POL:
 		{
 			LCD_WriteTextFromPGM(MN40);
-			switch (key)
+			switch (keyTemp)
 			{
 				case KEY_UP:
 				{
@@ -172,7 +201,7 @@ void MENU_Update() //zmiana stanu menu po naciœniêciu przycisku
 		case MENU_STATE_THERMO:
 		{
 			LCD_WriteTextFromPGM(MN50);
-			switch (key)
+			switch (keyTemp)
 			{
 				case KEY_UP:
 				{
@@ -201,6 +230,4 @@ void MENU_Update() //zmiana stanu menu po naciœniêciu przycisku
 			break;
 		}								
 	}
-	
-	return;
 }

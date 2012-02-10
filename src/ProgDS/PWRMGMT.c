@@ -5,7 +5,7 @@
 #include "MENU.h"
 
 unsigned char pwrTimeout;
-unsigned char menuUpdateOnTimer;
+unsigned char menuLock = FALSE;
 
 extern inline void PowerInit(void)
 {
@@ -15,48 +15,52 @@ extern inline void PowerInit(void)
 	TIMSK |= (1 << TOIE0);
 }
 
-ISR(TIMER0_OVF_vect)
+ISR(TIMER0_OVF_vect, ISR_NOBLOCK)
 {
-	if (pwrTimeout > 0)
+	if (menuLock == FALSE)
 	{
-		pwrTimeout--;
-	}
-	
-	
-	if ((pwrTimeout % 3) == 0)
-	{
-		MENU_Update();
-	}
-	
-	switch (pwrTimeout)
-	{
-		case (PWR_TIMEOUT - 1):
+		menuLock = TRUE;
+		if (key == KEY_NOKEY)
 		{
-			OCR1BL = 0xFF; // Backlight ON
-			GIMSK |= (1 << PCIE);
-			break;
+			MENU_Update();
 		}
-		case (DIM_TIMEOUT - 1):
+		
+		if (pwrTimeout > 0)
 		{
-			OCR1BL = DIM_POWER; // Backlight DIM/OFF
-			break;
+			pwrTimeout--;
 		}
-		case (BKL_TIMEOUT - 1):
+		
+		switch (pwrTimeout)
 		{
-			OCR1BL = 0x00; // Backlight OFF
-			break;
-		}			
-		case 0x00:
-		{
-			DDRD = LCD_POWER;
-			PORTD = 0x00; // Display OFF, other I/O Hi-Z
-			//DDRB = LCD_BACKLIGHT;
-			//PORTB = 0x00;
-			DDRA = 0x00;
-			PORTA = 0x00;
-			set_sleep_mode(SLEEP_MODE_PWR_DOWN);
-			//sleep_mode();
-			break;
-		}			
-	}
+			case (PWR_TIMEOUT - 1):
+			{
+				OCR1BL = 0xFF; // Backlight ON
+				GIMSK |= (1 << PCIE);
+				break;
+			}
+			case (DIM_TIMEOUT - 1):
+			{
+				OCR1BL = DIM_POWER; // Backlight DIM/OFF
+				break;
+			}
+			case (BKL_TIMEOUT - 1):
+			{
+				OCR1BL = 0x00; // Backlight OFF
+				break;
+			}			
+			case 0x00:
+			{
+				DDRD = LCD_POWER;
+				PORTD = 0x00; // Display OFF, other I/O Hi-Z
+				//DDRB = LCD_BACKLIGHT;
+				//PORTB = 0x00;
+				DDRA = 0x00;
+				PORTA = 0x00;
+				set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+				//sleep_mode();
+				break;
+			}			
+		}
+		menuLock = FALSE;
+	}		
 }
